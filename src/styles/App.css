@@ -1,3 +1,5 @@
+/* @import 'index.css'; */
+
 .App {
   text-align: center;
 }
@@ -38,4 +40,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flex-column> .active{
+  border-left: 2px solid #000 !important;
+}
+.flex-column a:hover{
+  border-left: 2px solid #ddd;
+}
+
+@media (min-width: 1200px) {
+ .container{
+  max-width: 900px !important;
+ }
 }
