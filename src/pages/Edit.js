@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 import {
-  Navbar,
+  
   Button,
   Form,
-  FormControl,
+  
   Container,
   Row,
   Col,
-  Tab,
-  Image,
-  Nav,
+  
 } from "react-bootstrap";
 import Template from "../components/Template";
 
@@ -48,7 +46,7 @@ export default class Edit extends Component {
               </Col>
               <Col md={10}>
                 <Form>
-                  <Form.Group controlId="formBasicCheckbox">
+                  <Form.Group >
                     <Form.Control type="text" placeholder="type your name" />
                     <Form.Text className="text-muted">
                       Help people discover your account by using the name you're

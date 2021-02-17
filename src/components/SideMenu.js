@@ -1,17 +1,9 @@
 import React, { Component } from "react";
-import { Router, Switch, Route, Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import {
-  Navbar,
-  Button,
-  Form,
-  FormControl,
-  Container,
-  Row,
-  Col,
-  Tab,
-  Image,
-  Nav,
+ 
+  Nav
 } from "react-bootstrap";
 
 export default class SideMenu extends Component {
