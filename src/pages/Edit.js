@@ -1,22 +1,33 @@
 import React, { Component } from "react";
-import {
-  
-  Button,
-  Form,
-  
-  Container,
-  Row,
-  Col,
-  
-} from "react-bootstrap";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
 import Template from "../components/Template";
 
 export default class Edit extends Component {
+  state = {
+    ProfileSaved: JSON.parse(localStorage.getItem("stokProduk")) || [],
+  };
+
+  onAdd = (e) => {
+    e.preventDefault();
+    const stokProduk = this.state.stokProduk;
+    stokProduk.push({
+      nama: e.target.nama.value,
+      harga: parseInt(e.target.harga.value),
+    });
+    localStorage.setItem("stokProduk", JSON.stringify(stokProduk));
+    // kenalkan stokproduk dengan stokproduk yang baru
+    this.setState({ stokProduk });
+  };
+  onSave = (e) => {
+    e.preventDefault();
+    const ProfileSaved = this.state.ProfileSaved;
+    this.setState({ ProfileSaved: ProfileSaved });
+    localStorage.setItem("ProfileSaved", JSON.stringify(ProfileSaved));
+  };
   render() {
     return (
-      <Template
-        {...this.props}
-        tampil={
+      <Template {...this.props}>
+        <Form onSubmit={this.onAdd}>
           <Container>
             <Row>
               <Col md={2}>
@@ -46,7 +57,7 @@ export default class Edit extends Component {
               </Col>
               <Col md={10}>
                 <Form>
-                  <Form.Group >
+                  <Form.Group>
                     <Form.Control type="text" placeholder="type your name" />
                     <Form.Text className="text-muted">
                       Help people discover your account by using the name you're
@@ -175,8 +186,8 @@ export default class Edit extends Component {
               </Col>
             </Row>
           </Container>
-        }
-      />
+        </Form>
+      </Template>
     );
   }
 }

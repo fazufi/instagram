@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
- 
-  Container,
-  Row,
-  Col,
-  
-} from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import TopMenu from "./TopMenu";
 import SideMenu from "./SideMenu";
 
@@ -24,7 +18,7 @@ export default class Template extends Component {
                   <SideMenu {...this.props} />
                 </Col>
                 <Col md={9} className="border">
-                  {this.props.tampil}
+                  {this.props.children}
                 </Col>
               </Row>
             </Container>

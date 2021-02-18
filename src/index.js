@@ -1,7 +1,7 @@
-
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import "./styles/index.css";
 
 // import logo from './logo.svg';
 import { Router, Switch, Route } from "react-router-dom";
@@ -11,7 +11,6 @@ import Edit from "./pages/Edit";
 
 import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 
 class App extends Component {
   render() {
@@ -51,7 +50,11 @@ class Home extends Component {
 
 class Change extends Component {
   render() {
-    return <Template {...this.props} tampil={<h2>Change</h2>} />;
+    return (
+      <Template {...this.props}>
+        <h2>Change</h2>
+      </Template>
+    );
   }
 }
 
@@ -97,7 +100,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
