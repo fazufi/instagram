@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import TopMenu from "./TopMenu";
 
 export default class TemplateExplore extends Component {

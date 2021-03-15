@@ -55,7 +55,7 @@ export default class Edit extends Component {
                 <p className="mt-0">
                   <b>
                     {/* <a href="/explore/locations/"><div class="_7UhW9  PIoXz       MMzan   _0PwGv         uL8Hv         ">Locations</div></a> */}
-                    <a href="">Change Profile Photo</a>
+                    <a href="i">Change Profile Photo</a>
                   </b>
                 </p>
               </Col>

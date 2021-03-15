@@ -1,0 +1,436 @@
+{
+  "push_prefs": [
+      {
+          "title": "Likes",
+          "example": "johnappleseed liked your photo.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "likes",
+          "checked": 2
+      },
+      {
+          "title": "Comments",
+          "example": "johnappleseed commented: \"Nice shot!\"",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "comments",
+          "checked": 3
+      },
+      {
+          "title": "Comment Likes",
+          "example": "johnappleseed liked your comment: \"Nice shot!\"",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ]
+          ],
+          "name": "comment_likes",
+          "checked": 2
+      },
+      {
+          "title": "Likes and Comments on Photos of You",
+          "example": "johnappleseed commented on a post you're tagged in.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "like_and_comment_on_photo_user_tagged",
+          "checked": 2
+      },
+      {
+          "title": "Accepted Follow Requests",
+          "example": "John Appleseed (johnappleseed) accepted your follow request.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "new_follower",
+          "checked": 3
+      },
+      {
+          "title": "Instagram Direct Requests",
+          "example": "johnappleseed wants to send you a message.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "follow_request_accepted",
+          "checked": 3
+      },
+      {
+          "title": "Teman yang menggunakan Instagram",
+          "example": "Teman Facebook Anda, John Appleseed, menggunakan Instagram sebagai johnappleseed.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "connection_notification",
+          "checked": 3
+      },
+      {
+          "title": "Permintaan Instagram Direct",
+          "example": "johnappleseed ingin mengirimi Anda pesan.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "pending_direct_share",
+          "checked": 3
+      },
+      {
+          "title": "Instagram Direct",
+          "example": "johnappleseed mengirimi Anda pesan.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "direct_share_activity",
+          "checked": 3
+      },
+      {
+          "title": "Permintaan Grup",
+          "example": "johnappleseed ingin menambahkan janeappleseed ke grup Anda.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "direct_group_requests",
+          "checked": 3
+      },
+      {
+          "title": "Pengingat",
+          "example": "Anda memiliki notifikasi yang tidak terlihat, dan notifikasi serupa lainnya.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "notification_reminders",
+          "checked": 3
+      },
+      {
+          "title": "Postingan dan Berita Pertama",
+          "example": "Lihat cerita pertama johnappleseed di Instagram, dan notifikasi serupa lainnya.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "first_post",
+          "checked": 3
+      },
+      {
+          "title": "Pengumuman Produk",
+          "example": "Unduh Boomerang, aplikasi terbaru Instagram.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "Hidup",
+                  3
+              ]
+          ],
+          "name": "announcements",
+          "checked": 3
+      },
+      {
+          "title": "Permintaan Dukungan",
+          "example": "Permintaan dukungan Anda dari Juli 10 baru saja diperbarui.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "Hidup",
+                  3
+              ]
+          ],
+          "name": "report_updated",
+          "checked": 3
+      },
+      {
+          "title": "Login Tidak Dikenal",
+          "example": [
+              "i",
+              "P",
+              "h",
+              "o",
+              "n",
+              "e",
+              " ",
+              "1",
+              "1",
+              " ",
+              "A",
+              "p",
+              "p",
+              "l",
+              "e",
+              " ",
+              "y",
+              "a",
+              "n",
+              "g",
+              " ",
+              "t",
+              "i",
+              "d",
+              "a",
+              "k",
+              " ",
+              "d",
+              "i",
+              "k",
+              "e",
+              "n",
+              "a",
+              "l",
+              " ",
+              "l",
+              "o",
+              "g",
+              "i",
+              "n",
+              " ",
+              "d",
+              "a",
+              "r",
+              "i",
+              " ",
+              "F",
+              "o",
+              "s",
+              "t",
+              "e",
+              "r",
+              " ",
+              "C",
+              "i",
+              "t",
+              "y",
+              ",",
+              " ",
+              "C",
+              "A",
+              ",",
+              " ",
+              "U",
+              "S",
+              "A",
+              "."
+          ],
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "Hidup",
+                  3
+              ]
+          ],
+          "name": "login_notification",
+          "checked": 3
+      },
+      {
+          "title": "Video Siaran Langsung",
+          "example": "johnappleseed memulai video siaran langsung. Tonton sebelum siaran berakhir!",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "Hidup",
+                  3
+              ]
+          ],
+          "name": "live_broadcast",
+          "checked": 3
+      },
+      {
+          "title": "Unggahan Video IGTV",
+          "example": [
+              "V",
+              "i",
+              "d",
+              "e",
+              "o",
+              " ",
+              "A",
+              "n",
+              "d",
+              "a",
+              " ",
+              "s",
+              "u",
+              "d",
+              "a",
+              "h",
+              " ",
+              "s",
+              "i",
+              "a",
+              "p",
+              " ",
+              "d",
+              "i",
+              "t",
+              "o",
+              "n",
+              "t",
+              "o",
+              "n",
+              " ",
+              "d",
+              "i",
+              " ",
+              "I",
+              "G",
+              "T",
+              "V",
+              "."
+          ],
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "Hidup",
+                  3
+              ]
+          ],
+          "name": "felix_upload_result",
+          "checked": 3
+      },
+      {
+          "title": "Jumlah Tayangan IGTV",
+          "example": "Video IGTV Anda memiliki tayangan lebih dari 100K: \"Video Baru Saya!\".",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "view_count",
+          "checked": 3
+      },
+      {
+          "title": "Obrolan Video",
+          "example": "Obrolan video masuk dari johnappleseed.",
+          "options": [
+              [
+                  "off",
+                  1
+              ],
+              [
+                  "from People I Follow",
+                  2
+              ],
+              [
+                  "from Everyone",
+                  3
+              ]
+          ],
+          "name": "video_call",
+          "checked": 3
+      }
+  ]
+}

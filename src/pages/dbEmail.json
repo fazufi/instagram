@@ -1,0 +1,84 @@
+{
+  "email_settings": [
+    {
+      "title": "Feedback Emails",
+      "example": "Give feedback on Instagram.",
+      "options": [
+        [
+          "Subscribe",
+          1
+        ],
+        [
+          "Usubscribe",
+          2
+        ]
+      ],
+      "name": "research",
+      "checked": 2
+    },
+    {
+      "title": "Reminder Emails",
+      "example": "Get notifications you may have missed.",
+      "options": [
+        [
+          "Subscribe",
+          1
+        ],
+        [
+          "Usubscribe",
+          2
+        ]
+      ],
+      "name": "reminders",
+      "checked": 2
+    },
+    {
+      "title": "Product Emails",
+      "example": "Get tips about Instagram's tools.",
+      "options": [
+        [
+          "Subscribe",
+          1
+        ],
+        [
+          "Usubscribe",
+          2
+        ]
+      ],
+      "name": "tutorial",
+      "checked": 1
+    },
+    {
+      "title": "News Emails",
+      "example": "Learn about new Instagram features.",
+      "options": [
+        [
+          "Subscribe",
+          1
+        ],
+        [
+          "Usubscribe",
+          2
+        ]
+      ],
+      "name": "announcement",
+      "checked": 2
+    },
+    {
+      "title": "Support Emails",
+      "example": "Get updates on reports and violations of our Community Guidelines.",
+      "options": [
+        [
+          "Subscribe",
+          1
+        ],
+        [
+          "Usubscribe",
+          2
+        ]
+      ],
+      "name": "support_email",
+      "checked": 2
+    }
+  ]
+}
