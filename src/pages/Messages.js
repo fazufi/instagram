@@ -30,11 +30,22 @@ class Messages extends Component {
     this.setState({ show: false });
   };
 
+ 
+
   componentDidMount() {
     axios.get(API_URL + "/comments").then((res) => {
       this.setState({ comments: res.data });
     });
   }
+  
+  axios=()=>{
+    axios
+    .get(API_URL + "/comments")
+    .then((res)=>{
+      this.setState({comments: res.data})
+    })
+  }
+
   Add = (e) => {
     e.preventDefault();
     console.log("target", e.target.Nama.value);
@@ -44,24 +55,20 @@ class Messages extends Component {
       body: e.target.Comment.value,
     };
     axios.post(API_URL + "/comments", data).then(
-      axios.get(API_URL + "/comments").then((res) => {
-        this.setState({ comments: res.data });
-      })
+      this.axios()
     );
+
     this.Hide();
   };
 
-  // Del = () => {
-  //   axios
-  //   .delete(API_URL + "/comments")
-  //   .then((res) => {
-  //     this.setState({
-  //       comments: res.data,
-  //     });
-  //   });
-  // };
+  Del = (id) => {
+    axios.delete(API_URL + "/comments/" + id ).then(this.axios()
+      // console.log("respon", res);
+    )
+  };
 
   render() {
+
     return (
       <TemplateExplore {...this.props}>
         <Pop
@@ -81,17 +88,22 @@ class Messages extends Component {
                   <th>Comments</th>
                 </tr>
               </thead>
-              {this.state.comments.map((item, i) => (
-                <tbody key={item.id}>
+              {this.state.comments.map((item, id) => (
+                
+                <tbody key={id} >
                   <tr>
-                    <td>{i + 1}</td>
+                    <td>{id + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.body}</td>
-                    <td><Button onClick={this.Del}>Delete</Button></td>
+                   <td><Button onClick={()=>this.Del(item.id)}>Delete</Button></td>
+                    
+                    {/* <td><Button onClick={this.Del}>Delete</Button></td> */}
                   </tr>
                   
                 </tbody>
+                
+                
               ))}
             </Table>
           </Row>
@@ -140,10 +152,10 @@ class Pop extends Component {
                 placeholder="Comment"
                 className="mb-3"
               />
-              
+
               <Button variant="secondary" onClick={this.props.Hide}>
                 Close
-              </Button> 
+              </Button>
               <Button variant="primary" type="submit">
                 Submit
               </Button>
