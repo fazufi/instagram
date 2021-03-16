@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import TemplateExplore from "../components/TemplateExplore";
 
-import {
-  Button,
-  Container,
-  Row,
-  Table,
-  Modal,
-  Form,
-  FormControl,
-} from "react-bootstrap";
+import { Button, Container, Row, Table, Modal, Form } from "react-bootstrap";
 
 import axios from "axios";
 
@@ -20,63 +12,56 @@ class Messages extends Component {
   state = {
     comments: [],
     show: false,
+    index: null,
   };
 
-  Show = () => {
-    this.setState({ show: true });
+  Toggle = (p) => {
+    this.setState({ show: p, index: null });
   };
-
-  Hide = () => {
-    this.setState({ show: false });
-  };
-
- 
 
   componentDidMount() {
     axios.get(API_URL + "/comments").then((res) => {
       this.setState({ comments: res.data });
     });
   }
-  
-  axios=()=>{
-    axios
-    .get(API_URL + "/comments")
-    .then((res)=>{
-      this.setState({comments: res.data})
-    })
-  }
 
-  Add = (e) => {
+  axios = () => {
+    axios.get(API_URL + "/comments").then((res) => {
+      this.setState({ comments: res.data });
+    });
+  };
+
+  Pop = (e, id) => {
     e.preventDefault();
-    console.log("target", e.target.Nama.value);
     const data = {
       name: e.target.Nama.value,
       email: e.target.Email.value,
       body: e.target.Comment.value,
     };
-    axios.post(API_URL + "/comments", data).then(
-      this.axios()
-    );
+    if (this.state.index == null) {
+      axios.post(API_URL + "/comments", data).then(this.axios());
+    } else {
+      axios.put(API_URL + "/comments/" + id, data).then(this.axios());
+    }
 
-    this.Hide();
+    this.Toggle();
   };
 
   Del = (id) => {
-    axios.delete(API_URL + "/comments/" + id ).then(this.axios()
-      // console.log("respon", res);
-    )
+    axios.delete(API_URL + "/comments/" + id).then(this.axios());
   };
 
+  Edit = (id) => {
+    this.setState({ show: true, index: id });
+  };
   render() {
-
+    const { comments, index } = this.state;
     return (
       <TemplateExplore {...this.props}>
-        <Pop
-          show={this.state.show}
-          Add={this.Add}
-          Show={this.Show}
-          Hide={this.Hide}
-        />
+        <Button variant="primary" onClick={() => this.Toggle(true)}>
+          Add
+        </Button>
+
         <Container className="template">
           <Row className="body">
             <Table striped bordered hover responsive="sm" variant="dark">
@@ -88,55 +73,41 @@ class Messages extends Component {
                   <th>Comments</th>
                 </tr>
               </thead>
-              {this.state.comments.map((item, id) => (
-                
-                <tbody key={id} >
+              {comments.map((item, id) => (
+                <tbody key={id}>
                   <tr>
                     <td>{id + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.body}</td>
-                   <td><Button onClick={()=>this.Del(item.id)}>Delete</Button></td>
-                    
-                    {/* <td><Button onClick={this.Del}>Delete</Button></td> */}
+                    <td>
+                      <Button onClick={() => this.Del(item.id)}>Delete</Button>
+                    </td>
+                    <td>
+                      <Button onClick={() => this.Edit(id)}>Edit</Button>
+                    </td>
+                    <td></td>
                   </tr>
-                  
                 </tbody>
-                
-                
               ))}
             </Table>
           </Row>
         </Container>
-      </TemplateExplore>
-    );
-  }
-}
-
-export default Messages;
-
-class Pop extends Component {
-  render() {
-    console.log("satu", this.props);
-    return (
-      <>
-        <Button variant="primary" onClick={this.props.Show}>
-          Add
-        </Button>
-
-        <Modal show={this.props.show} onHide={this.props.Hide}>
+        <Modal show={this.state.show} onHide={() => this.Toggle(false)}>
           <Modal.Header closeButton>
             <Modal.Title>Add new comments</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={this.props.Add}>
+            <Form onSubmit={(e) => this.Pop(e, index)}>
               <Form.Control
+                defaultValue={index != null ? comments[index].name : ""}
                 name="Nama"
                 type="text"
                 placeholder="Username"
                 className="mb-3"
               />
               <Form.Control
+                defaultValue={index != null ? comments[index].email : ""}
                 name="Email"
                 controlId="formBasicEmail"
                 type="email"
@@ -145,6 +116,7 @@ class Pop extends Component {
               />
 
               <Form.Control
+                defaultValue={index != null ? comments[index].body : ""}
                 name="Comment"
                 controlId="exampleForm.ControlTextarea1"
                 as="textarea"
@@ -153,7 +125,7 @@ class Pop extends Component {
                 className="mb-3"
               />
 
-              <Button variant="secondary" onClick={this.props.Hide}>
+              <Button variant="secondary" onClick={() => this.Toggle(false)}>
                 Close
               </Button>
               <Button variant="primary" type="submit">
@@ -162,7 +134,9 @@ class Pop extends Component {
             </Form>
           </Modal.Body>
         </Modal>
-      </>
+      </TemplateExplore>
     );
   }
 }
+
+export default Messages;
