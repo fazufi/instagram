@@ -5,14 +5,15 @@ import { Button, Container, Row, Table, Modal, Form } from "react-bootstrap";
 
 import axios from "axios";
 
-// const API_URL = process.env.REACT_APP_API_URL
-const API_URL = "http://localhost:3003";
+const API_URL = process.env.REACT_APP_API_URL;
+// const API_URL = "http://localhost:3003";
 
 class Messages extends Component {
   state = {
     comments: [],
     show: false,
     index: null,
+    id: null,
   };
 
   Toggle = (p) => {
@@ -41,20 +42,25 @@ class Messages extends Component {
     if (this.state.index == null) {
       axios.post(API_URL + "/comments", data).then(this.axios());
     } else {
+      console.log("pop-id", id);
       axios.put(API_URL + "/comments/" + id, data).then(this.axios());
     }
 
-    this.Toggle();
+    this.Toggle(false);
   };
 
   Del = (id) => {
     axios.delete(API_URL + "/comments/" + id).then(this.axios());
   };
 
-  Edit = (id) => {
-    this.setState({ show: true, index: id });
+  Edit = async (id) => {
+    await this.setState({ show: true, index: id });
+    this.setState({ id: this.state.comments[this.state.index].id });
+    console.log("iki", this.state.id, this.state.index);
   };
   render() {
+    console.log("render");
+
     const { comments, index } = this.state;
     return (
       <TemplateExplore {...this.props}>
@@ -93,12 +99,16 @@ class Messages extends Component {
             </Table>
           </Row>
         </Container>
-        <Modal show={this.state.show} onHide={() => this.Toggle(false)}>
+        <Modal
+          animation={false}
+          show={this.state.show}
+          onHide={() => this.Toggle(false)}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Add new comments</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <Form onSubmit={(e) => this.Pop(e, index)}>
+            <Form onSubmit={(e) => this.Pop(e, this.state.id)}>
               <Form.Control
                 defaultValue={index != null ? comments[index].name : ""}
                 name="Nama"
@@ -109,7 +119,7 @@ class Messages extends Component {
               <Form.Control
                 defaultValue={index != null ? comments[index].email : ""}
                 name="Email"
-                controlId="formBasicEmail"
+                id="formBasicEmail"
                 type="email"
                 placeholder="Enter email"
                 className="mb-3"
@@ -118,7 +128,7 @@ class Messages extends Component {
               <Form.Control
                 defaultValue={index != null ? comments[index].body : ""}
                 name="Comment"
-                controlId="exampleForm.ControlTextarea1"
+                id="exampleForm.ControlTextarea1"
                 as="textarea"
                 rows={3}
                 placeholder="Comment"
