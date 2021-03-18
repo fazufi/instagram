@@ -19,12 +19,12 @@ import Manage from "./pages/Manage";
 import Privacy from "./pages/Privacy";
 import Login from "./pages/Login";
 import Emails from "./pages/Emails";
-
-
+import { Provider } from "react-redux";
+import { persistor, store } from "./Redux/store";
+import { PersistGate } from "redux-persist/integration/react";
 
 class App extends Component {
   render() {
-    
     return (
       <Router history={createBrowserHistory()}>
         <Switch>
@@ -46,11 +46,13 @@ class App extends Component {
   }
 }
 
-
 ReactDOM.render(
-  
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate loading={null} peristor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );
