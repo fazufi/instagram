@@ -49,9 +49,9 @@ class App extends Component {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate loading={null} peristor={persistor}>
+      {/* <PersistGate loading={null} peristor={persistor}> */}
         <App />
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

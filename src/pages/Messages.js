@@ -4,6 +4,8 @@ import TemplateExplore from "../components/TemplateExplore";
 import { Button, Container, Row, Table, Modal, Form } from "react-bootstrap";
 
 import axios from "axios";
+import { connect } from "react-redux";
+import { mapDispatchToProps, mapStateToProps } from "../components/TopMenu";
 
 const API_URL = process.env.REACT_APP_API_URL;
 // const API_URL = "http://localhost:3003";
@@ -68,11 +70,11 @@ class Messages extends Component {
           Add
         </Button>
 
-        <Container className="template">
+        <Container >
           <Row className="body">
-            <Table striped bordered hover responsive="sm" variant="dark">
-              <thead>
-                <tr>
+            <Table striped bordered hover responsive="sm"  >
+              <thead >
+                <tr >
                   <th>Id</th>
                   <th>Name</th>
                   <th>Email</th>
@@ -82,17 +84,16 @@ class Messages extends Component {
               {comments.map((item, id) => (
                 <tbody key={id}>
                   <tr>
-                    <td>{id + 1}</td>
+                    <td  className={this.props.mode} >{id + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.body}</td>
-                    <td>
-                      <Button onClick={() => this.Del(item.id)}>Delete</Button>
-                    </td>
-                    <td>
+                    <p>
+                      <Button  onClick={() => this.Del(item.id)}>Delete</Button>
+                    
                       <Button onClick={() => this.Edit(id)}>Edit</Button>
-                    </td>
-                    <td></td>
+                    </p>
+                  
                   </tr>
                 </tbody>
               ))}
@@ -149,4 +150,7 @@ class Messages extends Component {
   }
 }
 
-export default Messages;
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Messages);

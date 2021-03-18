@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import TopMenu from "./TopMenu";
+import TopMenu, { mapDispatchToProps, mapStateToProps } from "./TopMenu";
+import { connect } from "react-redux";
 
 
-export default class TemplateHome extends Component {
+
+ class TemplateHome extends Component {
   render() {
     console.log(this.props);
     return (
-      <Container fluid>
+      <Container fluid  >
         <Row className="border">
           <TopMenu />
         </Row>
         <Container className="mt-3">
           <Row className="border">
-            <Container fluid>
+            <Container fluid className={this.props.mode}>
               <Row>
                 <Col sm={8}>{this.props.children}</Col>
                 <Col sm={4}>
@@ -114,3 +116,7 @@ export default class TemplateHome extends Component {
     );
   }
 }
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TemplateHome);

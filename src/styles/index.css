@@ -54,3 +54,25 @@
   max-width: 900px !important;
  }
 }
+
+.light{
+  background-color: white;
+  border: 15px solid green
+}
+.white{
+  background-color: white;
+  border: 4px solid rgb(165, 151, 241);
+}
+.red{
+background-color: red;
+border: 4px solid rgb(46, 16, 214);
+}
+.green{
+  background-color: green;
+  border: 4px solid rgb(6, 243, 184);
+}
+.yellow{
+  background-color: yellow;
+  border: 4px solid black;
+  
+}

@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Form, FormControl, Nav, Container } from "react-bootstrap";
+import { connect } from "react-redux";
 
-export default class TopMenu extends Component {
+class TopMenu extends Component {
+  Toggle=(p)=>{
+    this.props.gantiMode(p)
+  }
+  
   render() {
+    console.log("top", this.props.mode);
     return (
-      <Container fluid className="header">
-        <Navbar bg="light" expand="lg" className="ta-1">
-          <Container>
+      <Container fluid  >
+        <Navbar className={this.props.mode}  expand="lg" >
+        <button className="white" onClick={()=>this.Toggle("white")}>.</button>
+        <button className="red" onClick={()=>this.Toggle("red")}>.</button>
+        <button className="green" onClick={()=>this.Toggle("green")}>.</button>
+        <button className="yellow" onClick={()=>this.Toggle("yellow")}>.</button>
+          <Container >
+          
             <Navbar.Brand>
               <img
                 alt="Instagram"
@@ -77,3 +88,15 @@ export default class TopMenu extends Component {
     );
   }
 }
+
+export const mapStateToProps = (STATE) => {
+  return { ...STATE };
+};
+
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    gantiMode: (data) => dispatch({ type: "gantiMode", mode: data }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopMenu);

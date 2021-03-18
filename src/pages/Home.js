@@ -11,8 +11,9 @@ import ReadMoreReact from "read-more-react";
 import dbHome from "./dbHome.json";
 import dbHome2 from "./dbHome2.json";
 import dbHome3 from "./dbHome3.json";
+import { connect } from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
   state = {
     dbHome: JSON.parse(localStorage.getItem("dbHome")) || dbHome,
     dbHome2: JSON.parse(localStorage.getItem("dbHome2")) || dbHome2,
@@ -68,7 +69,7 @@ class Posts extends Component {
   render() {
     console.log("posts render");
     return (
-      <Card>
+      <Card >
         {this.props.json.data.user.edge_web_feed_timeline.edges.map(
           (item, b) => (
             <Col key={b}>
@@ -139,3 +140,14 @@ class Posts extends Component {
     );
   }
 }
+export const mapStateToProps = (STATE) => {
+  return { ...STATE };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    gantiMode: (data) => dispatch({ type: "gantiMode", mode: data }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
