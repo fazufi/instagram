@@ -90,7 +90,7 @@ class TopMenu extends Component {
 }
 
 export const mapStateToProps = (STATE) => {
-  return { ...STATE };
+  return { mode: STATE.mode };
 };
 
 export const mapDispatchToProps = (dispatch) => {

@@ -30,6 +30,7 @@ class Messages extends Component {
 
   axios = () => {
     axios.get(API_URL + "/comments").then((res) => {
+      console.log('refresh', res.data)
       this.setState({ comments: res.data });
     });
   };
@@ -42,17 +43,17 @@ class Messages extends Component {
       body: e.target.Comment.value,
     };
     if (this.state.index == null) {
-      axios.post(API_URL + "/comments", data).then(this.axios());
+      axios.post(API_URL + "/comments", data).then(() => this.axios());
     } else {
       console.log("pop-id", id);
-      axios.put(API_URL + "/comments/" + id, data).then(this.axios());
+      axios.put(API_URL + "/comments/" + id, data).then(() => this.axios());
     }
 
     this.Toggle(false);
   };
 
   Del = (id) => {
-    axios.delete(API_URL + "/comments/" + id).then(this.axios());
+    axios.delete(API_URL + "/comments/" + id).then(() => this.axios());
   };
 
   Edit = async (id) => {
@@ -61,9 +62,8 @@ class Messages extends Component {
     console.log("iki", this.state.id, this.state.index);
   };
   render() {
-    console.log("render");
-
     const { comments, index } = this.state;
+    console.log("render", comments.length);
     return (
       <TemplateExplore {...this.props}>
         <Button variant="primary" onClick={() => this.Toggle(true)}>
@@ -84,16 +84,16 @@ class Messages extends Component {
               {comments.map((item, id) => (
                 <tbody key={id}>
                   <tr>
-                    <td  className={this.props.mode} >{id + 1}</td>
+                    <td className={this.props.mode} >{item.id}</td>
                     <td>{item.name}</td>
                     <td>{item.email}</td>
                     <td>{item.body}</td>
                     <p>
-                      <Button  onClick={() => this.Del(item.id)}>Delete</Button>
-                    
+                      <Button onClick={() => this.Del(item.id)}>Delete</Button>
+
                       <Button onClick={() => this.Edit(id)}>Edit</Button>
                     </p>
-                  
+
                   </tr>
                 </tbody>
               ))}

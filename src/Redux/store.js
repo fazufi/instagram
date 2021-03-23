@@ -3,16 +3,17 @@ import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
-const State = {
-  mode: "light"
+const defaultState = {
+  mode: "light",
+  abc: ""
 };
 
-const Reduser = (STATE = State, a) => { 
+const Reduser = (initialState = defaultState, a) => { 
   
   if (a.type === "gantiMode") {
-    return { ...STATE, mode: a.mode };
+    return { ...initialState, mode: a.mode };
   }
-  return STATE;
+  return initialState;
 };
 const persistedReduser = persistReducer(
   {key: "root", storage}, Reduser

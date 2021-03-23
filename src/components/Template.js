@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import TopMenu, { mapDispatchToProps, mapStateToProps } from "./TopMenu";
+import TopMenu from "./TopMenu";
 import SideMenu from "./SideMenu";
 import { connect } from "react-redux";
 
  class Template extends Component {
   render() {
-    console.log(this.props);
     return (
       <Container className={this.props.mode} fluid>
         <Row className="border">
@@ -31,4 +30,7 @@ import { connect } from "react-redux";
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(Template);
+const mapStateToProps = (state) => {
+  return { mode: state.mode };
+};
+export default connect(mapStateToProps )(Template);
