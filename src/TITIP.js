@@ -196,8 +196,8 @@ class Alert extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mode = (state) => {
   return { background: state.background, color: state.color };
 };
 
-export default connect(mapStateToProps)(Message);
+export default connect(mode)(Message);

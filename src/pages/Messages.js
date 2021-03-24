@@ -5,7 +5,7 @@ import { Button, Container, Row, Table, Modal, Form } from "react-bootstrap";
 
 import axios from "axios";
 import { connect } from "react-redux";
-import { mapDispatchToProps, mapStateToProps } from "../components/TopMenu";
+import {  mode } from "../Helpers";
 
 const API_URL = process.env.REACT_APP_API_URL;
 // const API_URL = "http://localhost:3003";
@@ -153,4 +153,4 @@ class Messages extends Component {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Messages);
+export default connect(mode)(Messages);

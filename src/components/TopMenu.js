@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Form, FormControl, Nav, Container } from "react-bootstrap";
 import { connect } from "react-redux";
+import { mode, gantiMode } from "../Helpers";
 
 class TopMenu extends Component {
   Toggle=(p)=>{
@@ -89,14 +90,8 @@ class TopMenu extends Component {
   }
 }
 
-export const mapStateToProps = (STATE) => {
-  return { mode: STATE.mode };
-};
 
-export const mapDispatchToProps = (dispatch) => {
-  return {
-    gantiMode: (data) => dispatch({ type: "gantiMode", mode: data }),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopMenu);
+
+
+export default connect(mode , gantiMode)(TopMenu);

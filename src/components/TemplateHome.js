@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import TopMenu, { mapDispatchToProps, mapStateToProps } from "./TopMenu";
+import {  mode } from "../Helpers";
 import { connect } from "react-redux";
+import TopMenu from "./TopMenu";
 
 
 
@@ -119,4 +120,4 @@ import { connect } from "react-redux";
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(TemplateHome);
+export default connect(mode)(TemplateHome);

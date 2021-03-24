@@ -12,6 +12,7 @@ import dbHome from "./dbHome.json";
 import dbHome2 from "./dbHome2.json";
 import dbHome3 from "./dbHome3.json";
 import { connect } from "react-redux";
+import { mode } from "../Helpers";
 
 class Home extends Component {
   state = {
@@ -140,14 +141,6 @@ class Posts extends Component {
     );
   }
 }
-export const mapStateToProps = (STATE) => {
-  return { ...STATE };
-};
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    gantiMode: (data) => dispatch({ type: "gantiMode", mode: data }),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mode)(Home);
